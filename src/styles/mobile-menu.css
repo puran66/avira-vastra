@@ -1,0 +1,262 @@
+/* ============================================
+   MOBILE MENU STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Drawer Navigation
+   ============================================ */
+
+/* ============================================
+   BACKDROP OVERLAY
+   ============================================ */
+
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(61, 43, 31, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+    z-index: var(--z-overlay);
+}
+
+.menu-backdrop--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   DRAWER CONTAINER
+   ============================================ */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base) ease-in-out;
+    z-index: var(--z-modal);
+    overflow: hidden;
+}
+
+.mobile-menu--open {
+    transform: translateX(0);
+}
+
+/* ============================================
+   CLOSE BUTTON
+   ============================================ */
+
+.mobile-menu__close {
+    position: absolute;
+    top: var(--space-sm);
+    left: var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    z-index: 1;
+}
+
+.mobile-menu__close:hover {
+    color: var(--accent-gold-dark);
+}
+
+.mobile-menu__close svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ============================================
+   CONTENT AREA (Scrollable)
+   ============================================ */
+
+.mobile-menu__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: calc(var(--space-xl) + var(--space-lg)) var(--space-lg) var(--space-xl);
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   MAIN LINKS
+   ============================================ */
+
+.mobile-menu__link {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: var(--space-sm) 0;
+    transition: color var(--transition-fast);
+}
+
+.mobile-menu__link:hover {
+    color: var(--accent-gold-dark);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.mobile-menu__section {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-soft);
+}
+
+.mobile-menu__section:first-of-type {
+    margin-top: var(--space-md);
+    padding-top: 0;
+    border-top: none;
+}
+
+.mobile-menu__section-title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+/* ============================================
+   MENU LIST & ITEMS
+   ============================================ */
+
+.mobile-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu__item {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    transition: color var(--transition-fast);
+}
+
+.mobile-menu__item:hover {
+    color: var(--accent-gold-dark);
+}
+
+/* ============================================
+   PRIMARY ACTION LINK (New Arrivals)
+   ============================================ */
+
+.mobile-menu__primary-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-serif);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: var(--space-md) 0;
+    margin-top: var(--space-md);
+    border-top: 1px solid var(--border-soft);
+    transition: color var(--transition-fast);
+}
+
+.mobile-menu__primary-link:hover {
+    color: var(--accent-gold-dark);
+}
+
+.mobile-menu__arrow {
+    font-size: var(--fs-small);
+    transition: transform var(--transition-fast);
+}
+
+.mobile-menu__primary-link:hover .mobile-menu__arrow {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   TRUST LINE
+   ============================================ */
+
+.mobile-menu__trust-line {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-md) 0;
+    margin: 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+/* ============================================
+   WHATSAPP CTA
+   ============================================ */
+
+.mobile-menu__whatsapp {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: #E8F5E9;
+    margin: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.mobile-menu__whatsapp:hover {
+    background-color: #DCF0DD;
+}
+
+.mobile-menu__whatsapp-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.mobile-menu__whatsapp-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mobile-menu__whatsapp-title {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: #2E7D32;
+}
+
+.mobile-menu__whatsapp-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    color: #558B55;
+}
+
+/* ============================================
+   BODY SCROLL LOCK (when menu is open)
+   ============================================ */
+
+body.menu-open {
+    overflow: hidden;
+}

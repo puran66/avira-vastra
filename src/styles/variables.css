@@ -1,0 +1,168 @@
+/* ============================================
+   AVIRA SAREES - CSS DESIGN SYSTEM
+   Premium Traditional Indian Saree Brand
+   Mobile-First Design Tokens
+   ============================================ */
+
+:root {
+    /* ==========================================
+     COLOR PALETTE
+     Inspired by heritage saree showrooms
+     ========================================== */
+
+    /* Background Colors */
+    --bg-main: #FAF7F2;
+    /* Heritage ivory - warm off-white */
+    --bg-cream: #F5F0E8;
+    /* Slightly deeper cream */
+    --bg-card: #FFFFFF;
+    /* Pure white for cards */
+
+    /* Text Colors */
+    --text-primary: #3D2B1F;
+    /* Deep brown - warm, not harsh */
+    --text-secondary: #6B5B4F;
+    /* Muted brown-grey */
+    --text-muted: #8C7B6E;
+    /* Lighter muted tone */
+
+    /* Accent Colors */
+    --accent-gold: #B8956B;
+    /* Antique gold - subtle, refined */
+    --accent-gold-light: #D4B896;
+    --accent-gold-dark: #96744A;
+
+    /* Ritual Brand Colors */
+    --accent-maroon: #7A1D1D;
+    /* Sacred kumkum / wedding maroon */
+    --accent-green: #2D4F2D;
+    /* Temple green / auspicious leaves */
+    --accent-purple: #4B2C5E;
+    /* Royal ritual silk */
+
+    /* Border Colors */
+    --border-soft: #E8E0D5;
+    /* Very light warm border */
+    --border-medium: #D9CFC0;
+    /* Medium border for definition */
+
+    /* Semantic Colors (minimal use) */
+    --color-success: #5C7A5C;
+    /* Muted sage green */
+    --color-error: #A65D57;
+    /* Muted terracotta */
+
+    /* ==========================================
+     TYPOGRAPHY
+     Elegant, Indian-friendly fonts
+     ========================================== */
+
+    /* Font Families */
+    --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Font Sizes - Mobile First */
+    --fs-h1: 2rem;
+    /* 32px - Hero headline */
+    --fs-h2: 1.5rem;
+    /* 24px - Section headings */
+    --fs-h3: 1.25rem;
+    /* 20px - Subsection headings */
+    --fs-body: 1rem;
+    /* 16px - Readable paragraph */
+    --fs-small: 0.875rem;
+    /* 14px - Helper/trust text */
+    --fs-xs: 0.75rem;
+    /* 12px - Fine print */
+
+    /* Font Weights */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* Line Heights */
+    --lh-tight: 1.2;
+    /* Headings */
+    --lh-snug: 1.4;
+    /* Subheadings */
+    --lh-normal: 1.6;
+    /* Body text - comfortable reading */
+    --lh-relaxed: 1.8;
+    /* Long paragraphs */
+
+    /* Letter Spacing */
+    --ls-tight: -0.01em;
+    --ls-normal: 0;
+    --ls-open: 0.02em;
+    /* Slightly open for headings */
+    --ls-wide: 0.08em;
+    /* Uppercase text / labels */
+
+    /* ==========================================
+     SPACING SYSTEM
+     Harmonious, calm spacing
+     ========================================== */
+
+    --space-xs: 0.5rem;
+    /* 8px */
+    --space-sm: 0.75rem;
+    /* 12px */
+    --space-md: 1rem;
+    /* 16px */
+    --space-lg: 1.5rem;
+    /* 24px */
+    --space-xl: 2rem;
+    /* 32px */
+    --space-2xl: 3rem;
+    /* 48px */
+    --space-3xl: 4rem;
+    /* 64px */
+
+    /* Section Spacing (Mobile) */
+    --section-padding: var(--space-xl);
+    --container-padding: var(--space-md);
+
+    /* ==========================================
+     BORDERS & RADIUS
+     Used sparingly for premium feel
+     ========================================== */
+
+    --radius-soft: 4px;
+    /* Subtle rounding */
+    --radius-md: 8px;
+    /* Cards, buttons */
+    --radius-lg: 12px;
+    /* Larger elements */
+
+    --border-width: 1px;
+
+    /* ==========================================
+     SHADOWS
+     Soft, minimal shadows
+     ========================================== */
+
+    --shadow-soft: 0 2px 8px rgba(61, 43, 31, 0.06);
+    --shadow-medium: 0 4px 16px rgba(61, 43, 31, 0.08);
+    --shadow-lifted: 0 8px 24px rgba(61, 43, 31, 0.1);
+
+    /* ==========================================
+     TRANSITIONS
+     Smooth, unhurried motion
+     ========================================== */
+
+    --transition-fast: 200ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+
+    /* ==========================================
+     Z-INDEX SCALE
+     ========================================== */
+
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+}

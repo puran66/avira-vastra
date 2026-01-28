@@ -1,0 +1,149 @@
+/* ============================================
+   HERITAGE WEAVES STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.heritage-weaves {
+    padding: var(--space-2xl) 0;
+    background-color: var(--bg-cream);
+}
+
+.heritage-weaves__container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+.heritage-weaves__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.heritage-weaves__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.heritage-weaves__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   CARDS GRID
+   ============================================ */
+
+.heritage-weaves__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* ============================================
+   WEAVE CARD
+   ============================================ */
+
+.weave-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.weave-card:active {
+    opacity: 0.9;
+}
+
+/* ============================================
+   CARD IMAGE
+   ============================================ */
+
+.weave-card__image-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.weave-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ============================================
+   OVERLAY - Alternating Light/Dark
+   ============================================ */
+
+.weave-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 40%,
+            rgba(0, 0, 0, 0.05) 70%,
+            transparent 100%);
+    pointer-events: none;
+}
+
+/* Light overlay variant - for brighter images */
+.weave-card--light-overlay .weave-card__overlay {
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.25) 0%,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0.02) 70%,
+            transparent 100%);
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+
+.weave-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    z-index: var(--z-base);
+}
+
+.weave-card__title {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: var(--fw-semibold);
+    color: #FFFFFF;
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.weave-card__subtitle {
+    font-family: var(--font-serif);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-regular);
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    font-style: italic;
+    line-height: var(--lh-snug);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
