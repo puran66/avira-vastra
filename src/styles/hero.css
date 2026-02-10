@@ -12,10 +12,11 @@
     position: relative;
     width: 100%;
 
-    /* iOS Safari Fix: Use ONLY JavaScript-calculated height */
-    /* Blocking script in index.html sets --real-vh before first paint */
-    height: var(--real-vh, 100vh);
-    min-height: var(--real-vh, 100vh);
+    /* iOS Safari Fix: Use combination of dvh and blocking JS fallback */
+    height: 100dvh;
+    height: var(--real-vh, 100dvh);
+    min-height: 100dvh;
+    min-height: var(--real-vh, 100dvh);
 
     overflow: hidden;
     background-color: var(--text-primary);

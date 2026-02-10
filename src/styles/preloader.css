@@ -1,18 +1,24 @@
 .preloader {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
 
-    /* iOS Safari Fix: Use ONLY JavaScript-calculated height */
-    /* The blocking script in index.html sets --real-vh before first paint */
-    height: var(--real-vh, 100vh);
-    min-height: var(--real-vh, 100vh);
+    /* iOS Safari Fix: Pure 100dvh approach as requested */
+    height: 100dvh;
+    min-height: 100dvh;
+    /* Legacy iOS fallback */
+    min-height: -webkit-fill-available;
+    /* Optional JS fallback (blocking) */
+    height: var(--real-vh, 100dvh);
 
     /* Premium Glass Background */
     background-color: rgba(250, 247, 242, 0.85);
     /* Semi-transparent heritage ivory */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     /* Safari support */
 
     display: flex;
@@ -24,9 +30,8 @@
     /* Prevent any scrolling while preloader is visible */
     overflow: hidden;
 
-    /* iOS Safari: Ensure it covers safe areas */
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
+    /* Handle Notch and Home Indicator */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .preloader--exit {

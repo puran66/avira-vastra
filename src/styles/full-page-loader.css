@@ -4,9 +4,11 @@
     left: 0;
     width: 100%;
 
-    /* iOS Safari Fix: Use JavaScript-calculated height */
-    height: var(--real-vh, 100vh);
-    min-height: var(--real-vh, 100vh);
+    /* iOS Safari Fix: Use dynamic viewport height with JS fallback */
+    height: 100dvh;
+    height: var(--real-vh, 100dvh);
+    min-height: 100dvh;
+    min-height: var(--real-vh, 100dvh);
 
     background-color: rgba(250, 247, 242, 0.9);
     /* Transparent heritage ivory */
