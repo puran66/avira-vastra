@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { contentAPI, uploadAPI } from '../services/api';
 import toast from 'react-hot-toast';
 
@@ -59,6 +60,7 @@ const AdminContent = () => {
     };
 
     if (loading) return <div className="admin-loading">Loading Content Settings...</div>;
+    if (!content) return <div className="admin-error">Failed to load content settings. Please refresh.</div>;
 
     return (
         <div className="admin-content-page">
