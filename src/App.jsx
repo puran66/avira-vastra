@@ -114,6 +114,7 @@ function App() {
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="orders" element={<AdminOrders />} />
               <Route path="products" element={<AdminProducts />} />
+              <Route path="taxonomy" element={<AdminTaxonomy />} />
               <Route path="occasions" element={<AdminTaxonomy />} />
               <Route path="collections" element={<AdminTaxonomy />} />
               <Route path="users" element={<AdminUsers />} />

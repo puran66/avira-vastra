@@ -8,8 +8,7 @@ const AdminSidebar = ({ isOpen, onClose }) => {
         { path: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
         { path: '/admin/orders', icon: '📦', label: 'Orders' },
         { path: '/admin/products', icon: '🛍️', label: 'Products' },
-        { path: '/admin/occasions', icon: '🎉', label: 'Occasions' },
-        { path: '/admin/collections', icon: '🧵', label: 'Collections' },
+        { path: '/admin/taxonomy', icon: '🏷️', label: 'Store Taxonomy' },
         { path: '/admin/users', icon: '👥', label: 'Customers' },
         { path: '/admin/content', icon: '🎨', label: 'Website Content' },
     ];
