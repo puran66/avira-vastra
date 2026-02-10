@@ -11,10 +11,20 @@
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+
+    /* iOS Safari Fix: Use dynamic viewport height instead of 100vh */
+    /* Cascade from modern to legacy fallbacks */
     height: 100dvh;
+    /* Dynamic viewport height (Safari 15.4+) */
+    height: -webkit-fill-available;
+    /* iOS Safari 13-15 */
+    height: calc(var(--vh, 1vh) * 100);
+    /* JavaScript fallback (most reliable) */
+
     min-height: 100vh;
+    min-height: 100dvh;
     min-height: -webkit-fill-available;
+
     overflow: hidden;
     background-color: var(--text-primary);
 }
@@ -35,6 +45,42 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+
+    /* iOS Safari Fix: Hide video play button overlay */
+    /* This prevents the play icon from flashing during reload */
+
+    /* Hide all native controls */
+    -webkit-media-controls: none;
+    -webkit-media-controls-panel: none;
+    -webkit-media-controls-play-button: none;
+    -webkit-media-controls-start-playback-button: none;
+
+    /* Remove the play button overlay specifically */
+    &::-webkit-media-controls {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    &::-webkit-media-controls-panel {
+        display: none !important;
+    }
+
+    &::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+
+    &::-webkit-media-controls-start-playback-button {
+        display: none !important;
+    }
+
+    &::-webkit-media-controls-overlay-play-button {
+        display: none !important;
+        opacity: 0 !important;
+    }
+
+    /* Ensure video is always in background */
+    z-index: -1;
 }
 
 /* ============================================

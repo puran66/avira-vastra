@@ -26,6 +26,11 @@ const Hero = () => {
                     muted
                     loop
                     playsInline
+                    webkit-playsinline="true"
+                    x5-playsinline="true"
+                    preload="auto"
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
                     poster={content?.heroImage || "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1200&q=80"}
                     className="hero__video"
                 >
