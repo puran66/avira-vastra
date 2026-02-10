@@ -73,12 +73,21 @@ const AdminProducts = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Prepare data with correct types
+        const submissionData = {
+            ...formData,
+            price: Number(formData.price),
+            discountedPrice: formData.discountedPrice ? Number(formData.discountedPrice) : undefined,
+            stock: Number(formData.stock)
+        };
+
         try {
             if (editingProduct) {
-                await productsAPI.update(editingProduct._id, formData);
+                await productsAPI.update(editingProduct._id, submissionData);
                 toast.success('Product updated successfully');
             } else {
-                await productsAPI.create(formData);
+                await productsAPI.create(submissionData);
                 toast.success('New product added to collection');
             }
             setShowForm(false);
