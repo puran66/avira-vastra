@@ -33,7 +33,7 @@ const CheckoutPage = () => {
     // Check auth and cart
     useEffect(() => {
         if (!isAuthenticated) {
-            toast.error('Please login to checkout');
+            toast.error('Please login to checkout', { id: 'login-to-checkout' });
             navigate('/login?redirect=checkout');
             return;
         }
