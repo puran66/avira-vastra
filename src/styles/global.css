@@ -1,0 +1,369 @@
+/* ============================================
+   AVIRA SAREES - GLOBAL STYLES
+   Premium Traditional Indian Saree Brand
+   Mobile-First Base Styles
+   ============================================ */
+
+/* ============================================
+   GOOGLE FONTS IMPORT
+   Cormorant Garamond: Elegant, refined serif
+   Inter: Clean, highly readable sans-serif
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Import Design Tokens */
+@import './variables.css';
+
+/* ============================================
+   CSS RESET
+   Clean slate, respectful defaults
+   ============================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   BASE BODY STYLES
+   Foundation for all pages
+   ============================================ */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-normal);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   TYPOGRAPHY - HEADINGS
+   Elegant serif for premium feel
+   ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-open);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-regular);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-medium);
+}
+
+h4 {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+}
+
+/* ============================================
+   TYPOGRAPHY - BODY TEXT
+   Readable, comfortable for mobile
+   ============================================ */
+
+p {
+    margin: 0;
+    line-height: var(--lh-normal);
+}
+
+p+p {
+    margin-top: var(--space-md);
+}
+
+small {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+}
+
+strong,
+b {
+    font-weight: var(--fw-semibold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+/* ============================================
+   LINKS
+   Subtle, inherits text color
+   ============================================ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-gold-dark);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   IMAGES
+   Responsive, block-level
+   ============================================ */
+
+img,
+picture,
+video,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    object-fit: cover;
+}
+
+/* ============================================
+   LISTS
+   Clean reset
+   ============================================ */
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   BUTTONS
+   Base reset only
+   ============================================ */
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   Minimal reset
+   ============================================ */
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   HORIZONTAL RULE
+   Subtle gold divider
+   ============================================ */
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-soft);
+    margin: var(--space-lg) 0;
+}
+
+/* ============================================
+   SELECTION HIGHLIGHT
+   Gold-tinted selection
+   ============================================ */
+
+::selection {
+    background-color: var(--accent-gold-light);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   Subtle, matches design system
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ============================================
+   FOCUS MANAGEMENT
+   Clean focus states
+   ============================================ */
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ============================================
+   ROOT MOUNT POINT
+   Full-height layout foundation
+   ============================================ */
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   LOADING SPINNER
+   Professional loading indicator
+   ============================================ */
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-soft);
+    border-top-color: var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   Loading, Error, and Empty States
+   ============================================ */
+
+.new-arrivals__loading,
+.shop-by-occasion__loading,
+.heritage-weaves__loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.new-arrivals__loading p,
+.shop-by-occasion__loading p,
+.heritage-weaves__loading p {
+    margin-top: 1rem;
+    font-size: var(--fs-small);
+}
+
+.new-arrivals__error,
+.shop-by-occasion__error,
+.heritage-weaves__error {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+    background-color: #fef2f2;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.new-arrivals__empty,
+.shop-by-occasion__empty,
+.heritage-weaves__empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.new-arrivals__empty-subtitle {
+    margin-top: 0.5rem;
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+}
+
+/* Product Card Pricing */
+.product-card__pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.product-card__original-price {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.product-card__badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: #dc2626;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

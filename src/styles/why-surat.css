@@ -1,0 +1,65 @@
+/* ============================================
+   WHY SURAT STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.why-surat {
+    padding: var(--space-3xl) 0;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-soft);
+}
+
+.why-surat__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    text-align: center;
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.why-surat__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+
+.why-surat__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.why-surat__text p {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    line-height: var(--lh-relaxed);
+    margin: 0;
+}
+
+/* ============================================
+   REASSURANCE LINE
+   ============================================ */
+
+.why-surat__reassurance {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: var(--text-muted);
+    margin: var(--space-xl) 0 0;
+}

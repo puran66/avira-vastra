@@ -1,0 +1,202 @@
+/* ============================================
+   HEADER STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   HEADER CONTAINER
+   ============================================ */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-sticky);
+    background-color: transparent;
+    transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.header--scrolled {
+    background-color: var(--bg-main);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ============================================
+   TOP BAR - Subtle Tagline
+   ============================================ */
+
+.header__topbar {
+    padding: var(--space-xs) var(--space-md);
+    text-align: center;
+    background-color: rgba(61, 43, 31, 0.9);
+    /* Dark semi-transparent */
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.header--scrolled .header__topbar {
+    transform: translateY(-100%);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header__tagline {
+    font-family: var(--font-serif);
+    font-size: 0.625rem;
+    font-weight: var(--fw-medium);
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    display: block;
+}
+
+/* ============================================
+   MAIN HEADER ROW - Centered Layout
+   ============================================ */
+
+.header__main {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: var(--space-md) var(--space-md);
+    transition: padding var(--transition-base);
+}
+
+.header--scrolled .header__main {
+    padding: var(--space-sm) var(--space-md);
+}
+
+.header__left,
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.header__right {
+    justify-content: flex-end;
+}
+
+/* ============================================
+   BRAND NAME
+   ============================================ */
+
+.header__center {
+    display: flex;
+    justify-content: center;
+}
+
+.header__brand {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: var(--fw-regular);
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    /* White on transparent hero */
+    text-transform: lowercase;
+    text-decoration: none;
+    transition: color var(--transition-base), font-size var(--transition-base);
+}
+
+.header--scrolled .header__brand {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+/* ============================================
+   ICON BUTTONS & ICONS
+   ============================================ */
+
+.header__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    /* White on transparent hero */
+    transition: color var(--transition-base);
+}
+
+.header--scrolled .header__icon-btn {
+    color: var(--text-primary);
+}
+
+.header__icon-btn:hover {
+    color: var(--accent-gold);
+}
+
+.header__icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
+
+.header__cart-btn {
+    position: relative;
+}
+
+.header__cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--accent-gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1.5px solid var(--bg-main);
+    animation: badge-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+@keyframes badge-pop {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.header__icon-btn--desktop-only {
+    display: none;
+}
+
+@media (min-width: 480px) {
+    .header__icon-btn--desktop-only {
+        display: flex;
+    }
+}
+
+/* Page Transition Helper */
+.app {
+    animation: page-fade-in 0.6s ease-out;
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

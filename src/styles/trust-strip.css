@@ -1,0 +1,140 @@
+/* ============================================
+   TRUST STRIP STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   TRUST STRIP SECTION
+   ============================================ */
+
+.trust-strip {
+    background-color: var(--bg-cream);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    margin-top: calc(var(--space-lg) * -1);
+    margin-bottom: var(--space-2xl);
+}
+
+/* ============================================
+   CONTAINER - 2x2 Grid on Mobile
+   ============================================ */
+
+.trust-strip__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg) var(--space-md);
+    padding: var(--space-xl) var(--space-md);
+    max-width: var(--container-md);
+    margin: 0 auto;
+}
+
+/* ============================================
+   TRUST ITEM
+   ============================================ */
+
+.trust-strip__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    text-align: center;
+    padding: var(--space-sm);
+    transition: transform 0.2s ease;
+}
+
+.trust-strip__item:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+
+.trust-strip__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--accent-gold);
+    /* Muted gold icons for elegance */
+    margin-bottom: var(--space-2xs);
+}
+
+/* ============================================
+   TEXT
+   ============================================ */
+
+.trust-strip__text {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    line-height: var(--lh-snug);
+}
+
+/* ============================================
+   RESPONSIVE - Tablet & Up (480px+)
+   ============================================ */
+
+@media (min-width: 480px) {
+    .trust-strip__container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-md);
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .trust-strip__item {
+        padding: var(--space-md);
+    }
+
+    .trust-strip__icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .trust-strip__text {
+        font-size: var(--fs-base);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Desktop (768px+)
+   ============================================ */
+
+@media (min-width: 768px) {
+    .trust-strip__container {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .trust-strip__item {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .trust-strip__icon {
+        margin-bottom: 0;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Smaller Screens (max 360px)
+   ============================================ */
+
+@media (max-width: 360px) {
+    .trust-strip__container {
+        gap: var(--space-md) var(--space-xs);
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    .trust-strip__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .trust-strip__text {
+        font-size: var(--fs-xs);
+    }
+}

@@ -1,0 +1,211 @@
+/* ============================================
+   NEW ARRIVALS STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.new-arrivals {
+    padding: var(--space-2xl) 0;
+    background-color: var(--bg-main);
+}
+
+.new-arrivals__container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+.new-arrivals__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.new-arrivals__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.new-arrivals__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.new-arrivals__trust-line {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin: var(--space-xs) 0 0;
+}
+
+/* ============================================
+   PRODUCT GRID - 2 Columns on Mobile
+   ============================================ */
+
+.new-arrivals__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   PRODUCT CARD
+   ============================================ */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.product-card:active {
+    opacity: 0.85;
+}
+
+/* ============================================
+   PRODUCT IMAGE
+   ============================================ */
+
+.product-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-cream);
+    margin-bottom: var(--space-sm);
+}
+
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ============================================
+   PRODUCT INFO
+   ============================================ */
+
+.product-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.product-card__urgency {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: var(--text-muted);
+    text-transform: capitalize;
+    margin: 0 0 var(--space-xs);
+}
+
+.product-card__name {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    line-height: var(--lh-snug);
+    margin: 0;
+}
+
+.product-card__price {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin: var(--space-xs) 0;
+}
+
+.product-card__trust {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: var(--lh-snug);
+}
+
+.product-card__add-btn {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 10px rgba(184, 149, 107, 0.2);
+}
+
+.product-card__add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(184, 149, 107, 0.3);
+    filter: brightness(1.05);
+}
+
+.product-card__add-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   FOOTER - View All Link
+   ============================================ */
+
+.new-arrivals__footer {
+    text-align: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-soft);
+}
+
+.new-arrivals__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.new-arrivals__view-all:hover {
+    color: var(--accent-gold-dark);
+}
+
+.new-arrivals__arrow {
+    font-size: var(--fs-small);
+    transition: transform var(--transition-fast);
+}
+
+.new-arrivals__view-all:hover .new-arrivals__arrow {
+    transform: translateX(3px);
+}
+
+.new-arrivals__help-line {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin: var(--space-sm) 0 0;
+}

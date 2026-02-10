@@ -1,0 +1,54 @@
+/* ============================================
+   BRAND STORY STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.brand-story {
+    padding: var(--space-3xl) 0;
+    background-color: var(--bg-cream);
+    border-top: 1px solid var(--border-soft);
+}
+
+.brand-story__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    text-align: center;
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.brand-story__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    letter-spacing: var(--ls-open);
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+
+.brand-story__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.brand-story__text p {
+    font-family: var(--font-serif);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    line-height: var(--lh-relaxed);
+    margin: 0;
+}

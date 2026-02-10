@@ -1,0 +1,95 @@
+/* ============================================
+   WHATSAPP HELP STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.whatsapp-help {
+    padding: var(--space-3xl) 0;
+    background-color: var(--bg-cream);
+}
+
+.whatsapp-help__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    text-align: center;
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.whatsapp-help__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+
+.whatsapp-help__text {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    line-height: var(--lh-relaxed);
+    margin: 0 0 var(--space-xl);
+}
+
+/* ============================================
+   WHATSAPP BUTTON
+   ============================================ */
+
+.whatsapp-help__button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    color: #FFFFFF;
+    background-color: #25D366;
+    text-decoration: none;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-lg);
+    transition: background-color var(--transition-fast);
+}
+
+.whatsapp-help__button:hover {
+    background-color: #20BA5A;
+}
+
+.whatsapp-help__button:active {
+    background-color: #1DA851;
+}
+
+/* ============================================
+   WHATSAPP ICON
+   ============================================ */
+
+.whatsapp-help__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   REASSURANCE LINE
+   ============================================ */
+
+.whatsapp-help__reassurance {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: var(--text-muted);
+    margin: var(--space-md) 0 0;
+}

@@ -1,0 +1,82 @@
+/* ============================================
+   BRAND PROMISE STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.brand-promise {
+    padding: var(--space-3xl) 0;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-soft);
+}
+
+.brand-promise__container {
+    max-width: var(--container-md);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+.brand-promise__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.brand-promise__title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.brand-promise__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   PROMISE LIST
+   ============================================ */
+
+.brand-promise__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* ============================================
+   PROMISE ITEM
+   ============================================ */
+
+.promise-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.promise-item__title {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.promise-item__description {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    line-height: var(--lh-normal);
+    margin: 0;
+}

@@ -1,0 +1,168 @@
+/* ============================================
+   HERO STYLES
+   Premium Traditional Saree Brand
+   Mobile-First Design
+   ============================================ */
+
+/* ============================================
+   HERO CONTAINER
+   ============================================ */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full screen for maximum impact */
+    min-height: 600px;
+    overflow: hidden;
+    background-color: var(--text-primary);
+}
+
+/* ============================================
+   VIDEO BACKGROUND
+   ============================================ */
+
+.hero__video-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   OVERLAY (Luxury Subtle Tint)
+   ============================================ */
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(75deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+}
+
+/* ============================================
+   CONTENT CONTAINER - Rule of Thirds (Left)
+   ============================================ */
+
+.hero__content {
+    position: relative;
+    z-index: var(--z-base);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-md);
+}
+
+.hero__text-box {
+    max-width: 90%;
+}
+
+@media (min-width: 768px) {
+    .hero__content {
+        padding: 0 var(--space-xl);
+    }
+
+    .hero__text-box {
+        max-width: 50%;
+    }
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.hero__label {
+    font-family: var(--font-serif);
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-gold);
+    margin-bottom: var(--space-md);
+}
+
+.hero__headline {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: var(--fw-light);
+    line-height: 1.1;
+    color: #FFFFFF;
+    margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .hero__headline {
+        font-size: 4rem;
+    }
+}
+
+.hero__subtext {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-light);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-xl);
+    line-height: var(--lh-relaxed);
+    max-width: 400px;
+}
+
+/* ============================================
+   GHOST CTA BUTTON
+   ============================================ */
+
+.hero__actions {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.hero__cta--ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: var(--space-md) var(--space-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-soft);
+    transition: all var(--transition-base);
+}
+
+.hero__cta--ghost:hover {
+    background-color: #FFFFFF;
+    color: var(--text-primary);
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.hero__cta-arrow {
+    font-size: var(--fs-small);
+    transition: transform var(--transition-fast);
+}
+
+.hero__cta:hover .hero__cta-arrow {
+    transform: translateX(3px);
+}
+
+/* ============================================
+   MICRO REASSURANCE
+   ============================================ */
+
+.hero__reassurance {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: rgba(255, 255, 255, 0.75);
+    margin: var(--space-sm) 0 0;
+    letter-spacing: 0.02em;
+}
