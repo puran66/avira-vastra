@@ -23,7 +23,7 @@ const Preloader = () => {
         <div className={`preloader ${isExiting ? 'preloader--exit' : ''}`}>
             <div className="preloader__content">
                 <div className="preloader__logo">
-                    <span className="logo-text">aviravastra</span>
+                    <span className="logo-text">AVIRA VASTRA</span>
                 </div>
                 <div className="preloader__line-wrapper">
                     <div className="preloader__line"></div>

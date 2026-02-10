@@ -4,13 +4,17 @@
     width: 100%;
 
     /* iOS Safari Fix: Use ONLY JavaScript-calculated height */
-    /* CSS-only solutions (100vh, dvh, -webkit-fill-available) are unreliable on real iOS Safari */
-    /* The blocking script in index.html sets --vh before first paint */
+    /* The blocking script in index.html sets --real-vh before first paint */
     height: var(--real-vh, 100vh);
-    /* Fallback to 100vh only if JS fails */
     min-height: var(--real-vh, 100vh);
 
-    background-color: var(--bg-main);
+    /* Premium Glass Background */
+    background-color: rgba(250, 247, 242, 0.85);
+    /* Semi-transparent heritage ivory */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* Safari support */
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +24,7 @@
     /* Prevent any scrolling while preloader is visible */
     overflow: hidden;
 
-    /* iOS Safari: Ensure it covers safe areas (notch, home indicator) */
+    /* iOS Safari: Ensure it covers safe areas */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
 }
@@ -35,7 +39,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .preloader__logo {
@@ -44,10 +48,13 @@
 
 .logo-text {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 300;
     color: var(--text-primary);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.4em;
     display: block;
+    margin-right: -0.4em;
+    /* Offset for letter-spacing to center properly */
     animation: text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
