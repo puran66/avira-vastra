@@ -38,7 +38,7 @@ const AdminOrders = () => {
 
     if (loading) return <div className="admin-loading">Processing Orders...</div>;
 
-    const statusOptions = ['PLACED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
+    const statusOptions = ['AWAITING_PAYMENT', 'PLACED', 'CONFIRMED', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
 
     return (
         <div className="admin-orders">
@@ -46,13 +46,13 @@ const AdminOrders = () => {
 
             <div className="admin-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-                    <div className="admin-tabs" style={{ display: 'flex', gap: '0.5rem' }}>
-                        {['ALL', 'PLACED', 'SHIPPED', 'DELIVERED', 'CANCELLED'].map(s => (
+                    <div className="admin-tabs" style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                        {['ALL', ...statusOptions].map(s => (
                             <button
                                 key={s}
                                 className={`admin-btn ${filter === s ? 'admin-btn--primary' : 'admin-btn--outline'}`}
                                 onClick={() => setFilter(s)}
-                                style={{ fontSize: '0.75rem', padding: '0.4rem 1rem' }}
+                                style={{ fontSize: '0.65rem', padding: '0.4rem 0.6rem' }}
                             >
                                 {s}
                             </button>
