@@ -13,7 +13,14 @@ const Hero = () => {
     return (
         <section className="hero">
             {/* Cinematic Background Video */}
-            <div className="hero__video-wrapper">
+            <div
+                className="hero__video-wrapper"
+                style={{
+                    backgroundImage: `url(${content?.heroImage || "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1200&q=80"})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                }}
+            >
                 <video
                     autoPlay
                     muted
