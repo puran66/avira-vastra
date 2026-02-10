@@ -18,28 +18,43 @@ const OrderSuccessPage = () => {
 
     useEffect(() => {
         const fetchOrder = async () => {
-            if (!orderId || !user?.email) return;
+            if (!orderId) return;
 
             try {
                 setLoading(true);
-                const data = await ordersAPI.track({
-                    orderId,
-                    email: user.email
-                });
-                setOrder(data);
+                let data;
+
+                // If authenticated, try direct getById first (handles both mongodb _id and human-friendly orderId)
+                if (isAuthenticated) {
+                    try {
+                        data = await ordersAPI.getById(orderId);
+                    } catch (err) {
+                        // If getById fails (e.g. it was a human orderId and backend doesn't support it for getById)
+                        // fallback to track
+                        if (user?.email) {
+                            data = await ordersAPI.track({
+                                orderId,
+                                email: user.email
+                            });
+                        }
+                    }
+                } else if (user?.email) {
+                    // Guest/Public track
+                    data = await ordersAPI.track({
+                        orderId,
+                        email: user.email
+                    });
+                }
+
+                if (data) setOrder(data);
             } catch (error) {
                 console.error('Error fetching order details', error);
-                // Don't show toast if we are just waiting for data
             } finally {
                 setLoading(false);
             }
         };
 
-        if (isAuthenticated && user?.email) {
-            fetchOrder();
-        } else if (isAuthenticated === false) {
-            setLoading(false);
-        }
+        fetchOrder();
     }, [orderId, user?.email, isAuthenticated]);
 
     if (loading) {

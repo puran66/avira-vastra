@@ -57,6 +57,7 @@ export const ordersAPI = {
     getById: (id) => apiClient.get(`/orders/${id}`),
     track: (params) => apiClient.get('/orders/track', { params }),
     getAll: () => apiClient.get('/orders'),
+    getMyOrders: () => apiClient.get('/orders/my-orders'),
     updateStatus: (id, status) => apiClient.put(`/orders/${id}/status`, { status }),
 };
 

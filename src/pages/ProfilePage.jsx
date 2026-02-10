@@ -6,7 +6,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/authStore';
-import { authAPI } from '../services/api';
+import { authAPI, ordersAPI } from '../services/api';
 import FullPageLoader from '../components/FullPageLoader';
 import toast from 'react-hot-toast';
 import '../styles/profile.css';
@@ -16,6 +16,8 @@ const ProfilePage = () => {
     const { user, logout, updateUser, isAuthenticated } = useAuthStore();
     const [activeTab, setActiveTab] = useState('dashboard');
     const [loading, setLoading] = useState(true);
+    const [orders, setOrders] = useState([]);
+    const [orderLoading, setOrderLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -50,6 +52,16 @@ const ProfilePage = () => {
                         pincode: profileData.address?.pincode || '',
                     }
                 });
+
+                // Fetch Orders
+                try {
+                    const orderData = await ordersAPI.getMyOrders();
+                    setOrders(orderData);
+                } catch (err) {
+                    console.error('Error fetching orders:', err);
+                } finally {
+                    setOrderLoading(false);
+                }
             } catch (error) {
                 console.error('Error fetching profile:', error);
             } finally {
@@ -103,6 +115,16 @@ const ProfilePage = () => {
             </div>
         );
     }
+
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'DELIVERED': return '#4CAF50';
+            case 'PLACED': return '#2196F3';
+            case 'SHIPPED': return '#FF9800';
+            case 'CANCELLED': return '#F44336';
+            default: return '#9E9E9E';
+        }
+    };
 
     const hasAddress = user?.address?.street && user?.address?.city;
 
@@ -224,13 +246,45 @@ const ProfilePage = () => {
                         {activeTab === 'orders' && (
                             <section className="account-card">
                                 <h2 className="account-card__title">Order History</h2>
-                                <div className="empty-state">
-                                    <div className="empty-state__icon">📦</div>
-                                    <p className="empty-state__text">You haven't placed any orders yet.</p>
-                                    <button onClick={() => navigate('/products')} className="empty-state__btn">
-                                        Browse Our Collection
-                                    </button>
-                                </div>
+                                {orderLoading ? (
+                                    <p>Loading orders...</p>
+                                ) : orders.length > 0 ? (
+                                    <div className="order-history-list">
+                                        {orders.map((order) => (
+                                            <div key={order._id} className="order-item-card">
+                                                <div className="order-item-card__header">
+                                                    <div>
+                                                        <span className="order-id">#{order.orderId}</span>
+                                                        <span className="order-date">{new Date(order.createdAt).toLocaleDateString()}</span>
+                                                    </div>
+                                                    <span
+                                                        className="order-status-badge"
+                                                        style={{ backgroundColor: `${getStatusColor(order.orderStatus)}20`, color: getStatusColor(order.orderStatus) }}
+                                                    >
+                                                        {order.orderStatus}
+                                                    </span>
+                                                </div>
+                                                <div className="order-item-card__content">
+                                                    <div className="order-summary">
+                                                        <p><strong>Total:</strong> ₹{order.totalAmount.toLocaleString()}</p>
+                                                        <p><strong>Items:</strong> {order.items.length}</p>
+                                                    </div>
+                                                    <button onClick={() => navigate(`/order-success/${order._id}`)} className="view-order-btn">
+                                                        View Details
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="empty-state">
+                                        <div className="empty-state__icon">📦</div>
+                                        <p className="empty-state__text">You haven't placed any orders yet.</p>
+                                        <button onClick={() => navigate('/products')} className="empty-state__btn">
+                                            Browse Our Collection
+                                        </button>
+                                    </div>
+                                )}
                             </section>
                         )}
 
