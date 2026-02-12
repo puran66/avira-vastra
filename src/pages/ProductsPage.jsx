@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from '../components/ProductCard';
+import SectionLoader from '../components/SectionLoader';
+import SectionError from '../components/SectionError';
 import '../styles/products.css';
 
 const ProductsPage = () => {
@@ -105,14 +107,9 @@ const ProductsPage = () => {
 
                 <div className="products-main">
                     {loading ? (
-                        <div className="products-loading-state">
-                            <div className="loading-spinner"></div>
-                            <p>Refining our collection for you...</p>
-                        </div>
+                        <SectionLoader message="Refining our collection for you..." height="50vh" />
                     ) : error ? (
-                        <div className="products-error">
-                            <p>Something went wrong. Please refresh the page.</p>
-                        </div>
+                        <SectionError onRetry={refetch} height="50vh" />
                     ) : products.length === 0 ? (
                         <div className="products-empty">
                             <div className="products-empty__icon">✨</div>

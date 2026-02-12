@@ -6,11 +6,13 @@
 
 import { Link } from 'react-router-dom';
 import { useOccasions } from '../hooks/useOccasions';
+import SectionLoader from './SectionLoader';
+import SectionError from './SectionError';
 import '../styles/shop-by-occasion.css';
 
 const ShopByOccasion = () => {
     // Fetch all occasions
-    const { occasions, loading, error } = useOccasions();
+    const { occasions, loading, error, refetch } = useOccasions();
 
     // Format occasion data for display
     const formatOccasion = (occasion) => ({
@@ -42,17 +44,12 @@ const ShopByOccasion = () => {
 
                 {/* Loading State */}
                 {loading && (
-                    <div className="shop-by-occasion__loading">
-                        <div className="loading-spinner"></div>
-                        <p>Loading occasions...</p>
-                    </div>
+                    <SectionLoader message="Preparing Sacred Selections..." height="300px" />
                 )}
 
                 {/* Error State */}
                 {error && !loading && (
-                    <div className="shop-by-occasion__error">
-                        <p>Unable to load occasions. Please try again later.</p>
-                    </div>
+                    <SectionError onRetry={refetch} height="300px" />
                 )}
 
                 {/* Empty State */}

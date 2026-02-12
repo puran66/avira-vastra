@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ordersAPI } from '../services/api';
 import useAuthStore from '../store/authStore';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 import '../styles/order-success.css';
 
@@ -60,10 +61,7 @@ const OrderSuccessPage = () => {
     if (loading) {
         return (
             <div className="success-page">
-                <div className="success-container" style={{ textAlign: 'center' }}>
-                    <div className="loading-spinner" style={{ margin: '0 auto 1.5rem' }}></div>
-                    <p>Fetching your order details...</p>
-                </div>
+                <SectionLoader message="Finalizing your artisanal purchase..." height="60vh" />
             </div>
         );
     }

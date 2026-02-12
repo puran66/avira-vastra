@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/authStore';
 import { authAPI, ordersAPI } from '../services/api';
 import FullPageLoader from '../components/FullPageLoader';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 import '../styles/profile.css';
 
@@ -108,12 +109,7 @@ const ProfilePage = () => {
     };
 
     if (loading) {
-        return (
-            <div className="profile-loading">
-                <div className="loading-spinner"></div>
-                <p>Loading your dashboard...</p>
-            </div>
-        );
+        return <SectionLoader message="Opening your personalized vault..." height="70vh" />;
     }
 
     const getStatusColor = (status) => {
@@ -247,7 +243,7 @@ const ProfilePage = () => {
                             <section className="account-card">
                                 <h2 className="account-card__title">Order History</h2>
                                 {orderLoading ? (
-                                    <p>Loading orders...</p>
+                                    <SectionLoader message="Syncing your fashion history..." height="200px" />
                                 ) : orders.length > 0 ? (
                                     <div className="order-history-list">
                                         {orders.map((order) => (
