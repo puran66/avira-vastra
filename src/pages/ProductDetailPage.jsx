@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { productsAPI } from '../services/api';
 import useCartStore from '../store/cartStore';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 import '../styles/product-detail.css';
 
@@ -20,19 +21,20 @@ const ProductDetailPage = () => {
     const [selectedImage, setSelectedImage] = useState(0);
     const [quantity, setQuantity] = useState(1);
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const data = await productsAPI.getById(id);
-                setProduct(data);
-            } catch (error) {
-                toast.error('Product not found');
-                navigate('/products');
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchProduct = async () => {
+        setLoading(true);
+        try {
+            const data = await productsAPI.getById(id);
+            setProduct(data);
+        } catch (error) {
+            toast.error('Product not found');
+            navigate('/products');
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchProduct();
         window.scrollTo(0, 0);
     }, [id, navigate]);
@@ -43,12 +45,7 @@ const ProductDetailPage = () => {
     };
 
     if (loading) {
-        return (
-            <div className="product-detail-loading">
-                <div className="loading-spinner"></div>
-                <p>Curating details...</p>
-            </div>
-        );
+        return <SectionLoader message="Unfolding the saree's story..." height="80vh" />;
     }
 
     if (!product) return null;

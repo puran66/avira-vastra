@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { occasionsAPI, collectionsAPI, uploadAPI } from '../services/api';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 
 const AdminTaxonomy = () => {
@@ -100,7 +101,7 @@ const AdminTaxonomy = () => {
         }
     };
 
-    if (loading) return <div className="admin-loading">Loading Taxonomies...</div>;
+    if (loading) return <SectionLoader message="Syncing heritage categories..." height="60vh" />;
 
     const dataList = activeTab === 'occasions' ? occasions : collections;
 

@@ -6,11 +6,13 @@
 
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from './ProductCard';
+import SectionLoader from './SectionLoader';
+import SectionError from './SectionError';
 import '../styles/new-arrivals.css';
 
 const NewArrivals = () => {
     // Fetch latest 4 products
-    const { products, loading, error } = useProducts({ limit: 4, isActive: true });
+    const { products, loading, error, refetch } = useProducts({ limit: 4, isActive: true });
 
     return (
         <section className="new-arrivals">
@@ -27,17 +29,12 @@ const NewArrivals = () => {
 
                 {/* Loading State */}
                 {loading && (
-                    <div className="new-arrivals__loading">
-                        <div className="loading-spinner"></div>
-                        <p>Loading latest arrivals...</p>
-                    </div>
+                    <SectionLoader message="Unveiling our newest masterpieces..." height="300px" />
                 )}
 
                 {/* Error State */}
                 {error && !loading && (
-                    <div className="new-arrivals__error">
-                        <p>Unable to load products. Please try again later.</p>
-                    </div>
+                    <SectionError onRetry={refetch} height="300px" />
                 )}
 
                 {/* Empty State */}

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { ordersAPI } from '../services/api';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 
 const AdminOrders = () => {
@@ -44,7 +44,7 @@ const AdminOrders = () => {
         filter === 'ALL' || o.orderStatus === filter
     );
 
-    if (loading) return <div className="admin-loading">Processing Orders...</div>;
+    if (loading) return <SectionLoader message="Scanning heritage orders..." height="60vh" />;
 
     const statusOptions = ['AWAITING_PAYMENT', 'PLACED', 'CONFIRMED', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
 

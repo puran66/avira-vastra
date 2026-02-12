@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { productsAPI, categoriesAPI, occasionsAPI, collectionsAPI, uploadAPI } from '../services/api';
+import SectionLoader from '../components/SectionLoader';
 import toast from 'react-hot-toast';
 
 const AdminProducts = () => {
@@ -141,7 +142,7 @@ const AdminProducts = () => {
         setFormData({ ...formData, images: newImages });
     };
 
-    if (loading) return <div className="admin-loading">Loading Collection...</div>;
+    if (loading) return <SectionLoader message="Opening the master inventory..." height="60vh" />;
 
     return (
         <div className="admin-products">

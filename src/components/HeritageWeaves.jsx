@@ -6,11 +6,13 @@
 
 import { Link } from 'react-router-dom';
 import { useCollections } from '../hooks/useCollections';
+import SectionLoader from './SectionLoader';
+import SectionError from './SectionError';
 import '../styles/heritage-weaves.css';
 
 const HeritageWeaves = () => {
     // Fetch all collections
-    const { collections, loading, error } = useCollections();
+    const { collections, loading, error, refetch } = useCollections();
 
     // Format collection data for display
     const formatCollection = (collection) => ({
@@ -43,17 +45,12 @@ const HeritageWeaves = () => {
 
                 {/* Loading State */}
                 {loading && (
-                    <div className="heritage-weaves__loading">
-                        <div className="loading-spinner"></div>
-                        <p>Loading collections...</p>
-                    </div>
+                    <SectionLoader message="Retrieving artisanal archives..." height="300px" />
                 )}
 
                 {/* Error State */}
                 {error && !loading && (
-                    <div className="heritage-weaves__error">
-                        <p>Unable to load collections. Please try again later.</p>
-                    </div>
+                    <SectionError onRetry={refetch} height="300px" />
                 )}
 
                 {/* Empty State */}
