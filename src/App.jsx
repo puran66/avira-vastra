@@ -6,39 +6,38 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useState, useEffect, lazy, Suspense } from 'react';
 
-// Layout
+// Layout (Always needed)
 import Header from './components/Header';
 import MobileMenu from './components/MobileMenu';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Preloader from './components/Preloader';
+import FullPageLoader from './components/FullPageLoader';
 
-// Pages
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import ProductsPage from './pages/ProductsPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import OrderSuccessPage from './pages/OrderSuccessPage';
-import OrderFailedPage from './pages/OrderFailedPage';
-import ProfilePage from './pages/ProfilePage';
-import AdminLoginPage from './pages/AdminLoginPage';
-import ContactPage from './pages/ContactPage';
-import StoryPage from './pages/StoryPage';
+// Pages - Optimized with Lazy Loading
+const HomePage = lazy(() => import('./pages/HomePage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const CartPage = lazy(() => import('./pages/CartPage'));
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
+const OrderSuccessPage = lazy(() => import('./pages/OrderSuccessPage'));
+const OrderFailedPage = lazy(() => import('./pages/OrderFailedPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const StoryPage = lazy(() => import('./pages/StoryPage'));
 
-// Admin Pages
-import AdminLayout from './components/AdminLayout';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminOrders from './pages/AdminOrders';
-import AdminProducts from './pages/AdminProducts';
-import AdminTaxonomy from './pages/AdminTaxonomy';
-import AdminUsers from './pages/AdminUsers';
-import AdminContent from './pages/AdminContent';
-
-// Hooks
-import { useState, useEffect } from 'react';
+// Admin Components & Pages
+const AdminLayout = lazy(() => import('./components/AdminLayout'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminOrders = lazy(() => import('./pages/AdminOrders'));
+const AdminProducts = lazy(() => import('./pages/AdminProducts'));
+const AdminTaxonomy = lazy(() => import('./pages/AdminTaxonomy'));
+const AdminUsers = lazy(() => import('./pages/AdminUsers'));
+const AdminContent = lazy(() => import('./pages/AdminContent'));
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
 
@@ -78,48 +77,50 @@ function App() {
         <div className="app">
           <ScrollToTop />
 
-          <Routes>
-            {/* Public Layout Group */}
-            <Route element={
-              <>
-                <Header onMenuOpen={handleMenuOpen} isScrolled={isScrolled} />
-                <MobileMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
-                <Outlet />
-                <Footer />
-              </>
-            }>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/sarees" element={<ProductsPage />} />
-              <Route path="/new-arrivals" element={<ProductsPage />} />
-              <Route path="/wedding-sarees" element={<ProductsPage />} />
-              <Route path="/heritage-weaves" element={<ProductsPage />} />
-              <Route path="/collection" element={<ProductsPage />} />
-              <Route path="/product/:id" element={<ProductDetailPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/order-success/:orderId" element={<OrderSuccessPage />} />
-              <Route path="/order-failed/:orderId" element={<OrderFailedPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/our-story" element={<StoryPage />} />
-              <Route path="/our-story-and-values" element={<StoryPage />} />
-            </Route>
+          <Suspense fallback={<FullPageLoader message="Gracefully preparing your experience..." />}>
+            <Routes>
+              {/* Public Layout Group */}
+              <Route element={
+                <>
+                  <Header onMenuOpen={handleMenuOpen} isScrolled={isScrolled} />
+                  <MobileMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+                  <Outlet />
+                  <Footer />
+                </>
+              }>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/sarees" element={<ProductsPage />} />
+                <Route path="/new-arrivals" element={<ProductsPage />} />
+                <Route path="/wedding-sarees" element={<ProductsPage />} />
+                <Route path="/heritage-weaves" element={<ProductsPage />} />
+                <Route path="/collection" element={<ProductsPage />} />
+                <Route path="/product/:id" element={<ProductDetailPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/order-success/:orderId" element={<OrderSuccessPage />} />
+                <Route path="/order-failed/:orderId" element={<OrderFailedPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/our-story" element={<StoryPage />} />
+                <Route path="/our-story-and-values" element={<StoryPage />} />
+              </Route>
 
-            {/* Admin Routes (No Header/Footer) */}
-            <Route path="/admin-login" element={<AdminLoginPage />} />
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="orders" element={<AdminOrders />} />
-              <Route path="products" element={<AdminProducts />} />
-              <Route path="taxonomy" element={<AdminTaxonomy />} />
-              <Route path="occasions" element={<AdminTaxonomy />} />
-              <Route path="collections" element={<AdminTaxonomy />} />
-              <Route path="users" element={<AdminUsers />} />
-              <Route path="content" element={<AdminContent />} />
-            </Route>
-          </Routes>
+              {/* Admin Routes (No Header/Footer) */}
+              <Route path="/admin-login" element={<AdminLoginPage />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="orders" element={<AdminOrders />} />
+                <Route path="products" element={<AdminProducts />} />
+                <Route path="taxonomy" element={<AdminTaxonomy />} />
+                <Route path="occasions" element={<AdminTaxonomy />} />
+                <Route path="collections" element={<AdminTaxonomy />} />
+                <Route path="users" element={<AdminUsers />} />
+                <Route path="content" element={<AdminContent />} />
+              </Route>
+            </Routes>
+          </Suspense>
 
           {/* Toast Notifications */}
           <Toaster
