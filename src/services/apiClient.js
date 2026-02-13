@@ -5,7 +5,7 @@
 
 const API_CONFIG = {
     baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
-    timeout: 10000,
+    timeout: 60000, // Increased to 60s for Render.com free tier cold starts
     headers: {
         'Content-Type': 'application/json',
     },

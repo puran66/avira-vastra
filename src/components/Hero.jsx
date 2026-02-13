@@ -49,13 +49,7 @@ const Hero = () => {
                 <div className="hero__text-box">
                     <p className="hero__label">Crafted in Surat</p>
                     <h1 className="hero__headline">
-                        {content?.heroTitle || (
-                            <>
-                                The Art of the Weave:<br />
-                                Timeless Silks for the<br />
-                                Modern Heirloom
-                            </>
-                        )}
+                        {content?.heroTitle || "The Art of the Weave: Timeless Silks for the Modern Heirloom"}
                     </h1>
 
                     <p className="hero__subtext">
